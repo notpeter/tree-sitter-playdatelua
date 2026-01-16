@@ -1,29 +1,28 @@
-# tree-sitter-lua
-
-[![CI][ci]](https://github.com/tree-sitter-grammars/tree-sitter-lua/actions/workflows/ci.yml)
-[![discord][discord]](https://discord.gg/w7nTvsVJhm)
-[![matrix][matrix]](https://matrix.to/#/#tree-sitter-chat:matrix.org)
-[![npm][npm]](https://www.npmjs.com/package/%40tree-sitter-grammars%2Ftree-sitter-lua)
-[![crates][crates]](https://crates.io/crates/tree-sitter-lua)
+# tree-sitter-lua-playdate
 
 Lua grammar for tree-sitter.
 
-- Lua 5.x
-- LuaJIT 2.x
+Fork of [tree-sitter-grammars/tree-sitter-lua](https://github.com/tree-sitter-grammars/tree-sitter-lua) adding
+[Compound Assignment Operators](https://sdk.play.date/3.0.2/Inside%20Playdate.html#additional-assignment-operators)
+as used in the Panic Playdate SDK version of Lua.
 
-## References
+| Op  | Name                      |
+| --- | ------------------------- |
+| +=  | Addition                  |
+| -=  | Subtraction               |
+| \*= | Multiplication            |
+| /=  | Division                  |
+| //= | Integer division          |
+| %=  | Modulo                    |
+| <<= | Shift left                |
+| >>= | Shift right               |
+| &=  | Bitwise AND               |
+| \|= | Bitwise OR                |
+| ^=  | Exponent (not bitwise XOR |
 
-- [Lua Documentation](https://www.lua.org/docs.html)
+See [LuaPowerPatches on lua-users.org wiki](http://lua-users.org/wiki/LuaPowerPatches) for more info.
+The original link to the patch there is broken, but is available here: [plusequals-5.4.0-beta.patch](https://github.com/notpeter/playdate-lua/blob/main/patch/plusequals-5.4.0-beta.patch).
 
-## Acknowledgement
+## See also:
 
-The [external scanner](/src/scanner.c) was initially based on these repositories:
-
-- [Azganoth/tree-sitter-lua](https://github.com/Azganoth/tree-sitter-lua)
-- [euclidianAce/tree-sitter-teal](https://github.com/euclidianAce/tree-sitter-teal)
-
-[ci]: https://img.shields.io/github/actions/workflow/status/tree-sitter-grammars/tree-sitter-lua/ci.yml?logo=github&label=CI
-[discord]: https://img.shields.io/discord/1063097320771698699?logo=discord&label=discord
-[matrix]: https://img.shields.io/matrix/tree-sitter-chat%3Amatrix.org?logo=matrix&label=matrix
-[npm]: https://img.shields.io/npm/v/%40tree-sitter-grammars%2Ftree-sitter-lua?logo=npm
-[crates]: https://img.shields.io/crates/v/tree-sitter-lua?logo=rust
+- [Zed Playdate Extension](https://github.com/notpeter/playdate-zed-extension)
