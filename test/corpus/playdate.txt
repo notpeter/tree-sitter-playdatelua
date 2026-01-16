@@ -1,0 +1,33 @@
+========
+playdate
+========
+function foo()
+    local function bar(x)
+        x += 2
+    end
+    return bar(3)
+end
+
+--------
+
+(chunk
+  (function_declaration
+    (identifier)
+    (parameters)
+    (block
+      (function_declaration
+        (identifier)
+        (parameters
+          (identifier))
+        (block
+          (assignment_statement
+            (variable_list
+              (identifier))
+            (expression_list
+              (number)))))
+      (return_statement
+        (expression_list
+          (function_call
+            (identifier)
+            (arguments
+              (number))))))))

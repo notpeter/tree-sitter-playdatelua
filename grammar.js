@@ -117,7 +117,21 @@ export default grammar({
     assignment_statement: ($) =>
       seq(
         alias($._variable_assignment_varlist, $.variable_list),
-        field('operator', '='),
+        choice(
+          field('operator', '='),
+          // Additional non-standard assignment operators used by Playdate Lua
+          field("operator", "+="),
+          field("operator", "-="),
+          field("operator", "*="),
+          field("operator", "//="),
+          field("operator", "/="),
+          field("operator", "%="),
+          field("operator", "<<="),
+          field("operator", ">>="),
+          field("operator", "&="),
+          field("operator", "|="),
+          field("operator", "^="),
+        ),
         alias($._variable_assignment_explist, $.expression_list)
       ),
     // varlist ::= var {',' var}
@@ -496,7 +510,7 @@ export default grammar({
           '[',
           field('name', $.expression),
           ']',
-          field('operator', '='),
+          choice(field("operator", "=")),
           field('value', $.expression)
         ),
         seq(field('name', $.identifier), field('operator', '='), field('value', $.expression)),
